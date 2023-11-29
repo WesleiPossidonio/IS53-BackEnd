@@ -1,12 +1,16 @@
 import express from 'express'
 import routes from './routes'
 
-import './database'
 import cors from 'cors'
+
+import * as dotenv from 'dotenv'
+dotenv.config()
+
+import './database'
+
 class App {
   constructor() {
     this.app = express()
-   
 
     this.middlewares()
     this.routes()
@@ -14,7 +18,7 @@ class App {
 
   middlewares() {
     this.app.use(express.json())
-    app.use(cors())
+    this.app.use(cors())
   }
 
   routes() {
