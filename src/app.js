@@ -9,7 +9,7 @@ dotenv.config()
 class App {
   constructor() {
     this.app = express()
-    app.use(cors())
+   
 
     this.middlewares()
     this.routes()
@@ -17,6 +17,7 @@ class App {
 
   middlewares() {
     this.app.use(express.json())
+    app.use(cors())
   }
 
   routes() {
