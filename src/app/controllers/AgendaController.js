@@ -81,6 +81,26 @@ class AgendaController {
   }
 
 
+  async delete(request, response) {
+    const { id } = request.params;
+
+    try {
+      const agenda = await Agenda.findByPk(id);
+
+      if (!agenda) {
+        return response.status(404).json({ error: 'Agenda not found' });
+      }
+
+      // Delete the agenda
+      await agenda.destroy();
+
+      return response.json({ message: 'Agenda deleted successfully' });
+    } catch (error) {
+      console.error(error);
+      return response.status(500).json({ error: 'Internal server error' });
+    }
+  }
+
 }
 
 export default new AgendaController()
