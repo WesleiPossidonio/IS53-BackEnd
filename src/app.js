@@ -2,10 +2,7 @@ import express from 'express'
 import routes from './routes'
 
 import './database'
-
 import cors from 'cors'
-dotenv.config()
-
 class App {
   constructor() {
     this.app = express()
