@@ -2,11 +2,10 @@ import { v4 } from 'uuid'
 import * as Yup from 'yup'
 
 import Agenda from '../models/Agenda'
-
 class AgendaController {
   async store(request, response) {
-    const schema = Yup.object.shape({
-      church_name: Yup.string().require(),
+    const schema = Yup.object().shape({
+      church_name: Yup.string().required(),
       agenda_date: Yup.string().required(),
       address: Yup.string().required(),
     })
@@ -25,9 +24,9 @@ class AgendaController {
       agenda_date,
       address,
     })
+    
     return response.status(201).json({ id: listAgenda.id, church_name, agenda_date, address })
   }
-
 
   async update(request, response) { 
     const schema = Yup.object.shape({

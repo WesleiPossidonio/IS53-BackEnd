@@ -10,9 +10,9 @@ const routes = new Router()
 routes.put('/update-password', UserController.update)
 routes.post('/sessions', SessionController.store)
 routes.get('/listCalendar', AgendaController.index)
+routes.post('/users', UserController.store)
 
 routes.use(authMiddlewares)
-routes.post('/users', UserController.store)
 
 routes.post('/addCalendar', AgendaController.store)
 routes.put('/updateCalendar', AgendaController.update)
