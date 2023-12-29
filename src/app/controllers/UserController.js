@@ -53,10 +53,9 @@ class UserController {
     }
 
     const { email, password } = request.body
-    const { id } = request.params
 
     const userExists = await User.findOne({
-      where: { id },
+      where: { email },
     })
 
     if (!userExists) {
