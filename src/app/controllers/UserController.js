@@ -62,7 +62,7 @@ class UserController {
       return response.status(400).json({ error: 'User not found' })
     }
 
-    await User.update({password}, { where: { id } })
+    await User.update({password}, { where: { email } })
 
     return response.status(200).json()
   }
